@@ -45,19 +45,9 @@ export default function Home() {
         <div className="product-cards">
           {products
             .sort((a, b) => {
-              if (filter === "price-high-to-low") {
-                if (a.price > b.price) return -1;
-                if (a.price < b.price) return 1;
-                return -1;
-              } else if (filter === "price-low-to-high") {
-                if (a.price > b.price) return 1;
-                if (a.price < b.price) return -1;
-                return 1;
-              } else {
-                if (a.id > b.id) return 1;
-                if (a.id < b.id) return -1;
-                return 1;
-              }
+              if (filter === "price-high-to-low") return b.price - a.price;
+              if (filter === "price-low-to-high") return a.price - b.price;
+              return a.id - b.id;
             })
             .map((product) => {
               return <Card product={product} key={product.id} />;
