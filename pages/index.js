@@ -51,6 +51,9 @@ export default function Home(props) {
               return <Card product={product} key={product.id} isFull={false} />;
             })}
         </div>
+        <footer>
+          <p>&copy;2021</p>
+        </footer>
       </main>
     </>
   );
