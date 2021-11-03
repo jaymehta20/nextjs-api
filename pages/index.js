@@ -1,30 +1,31 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Card from "../components/Card";
 
-export default function Home() {
+export default function Home(props) {
+  const { data } = props;
   const [filter, setFilter] = useState("");
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  // const [products, setProducts] = useState([]);
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState(null);
 
-  const fetcher = async () => {
-    try {
-      const res = await fetch("https://fakestoreapi.com/products");
-      const data = await res.json();
-      setProducts(data);
-    } catch (err) {
-      console.log(err);
-      setError("There's an error");
-    } finally {
-      setLoading(false);
-    }
-  };
-  useEffect(() => {
-    fetcher();
-  }, []);
+  // const fetcher = async () => {
+  //   try {
+  //     const res = await fetch("https://fakestoreapi.com/products");
+  //     const data = await res.json();
+  //     setProducts(data);
+  //   } catch (err) {
+  //     console.log(err);
+  //     setError("There's an error");
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+  // useEffect(() => {
+  //   fetcher();
+  // }, []);
 
-  if (loading) return "Loading...";
-  if (error) return "Error...";
+  // if (loading) return "Loading...";
+  // if (error) return "Error...";
 
   return (
     <>
@@ -43,7 +44,7 @@ export default function Home() {
       <main>
         <h2>Products</h2>
         <div className="product-cards">
-          {products
+          {data
             .sort((a, b) => {
               if (filter === "price-high-to-low") return b.price - a.price;
               if (filter === "price-low-to-high") return a.price - b.price;
@@ -56,4 +57,13 @@ export default function Home() {
       </main>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const res = await fetch("https://fakestoreapi.com/products");
+  const data = await res.json();
+
+  return {
+    props: { data },
+  };
 }

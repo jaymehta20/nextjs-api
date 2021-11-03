@@ -5,7 +5,6 @@ const Card = (props) => {
   const truncate = (desc) => {
     return desc.substr(0, 50) + ".....";
   };
-  console.log(`${price}\n`);
 
   return (
     <Link passHref href={`/products/${id}`}>
