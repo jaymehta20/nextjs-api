@@ -22,17 +22,24 @@ export async function getStaticPaths() {
   });
 
   return {
-    paths,
-    fallback: true,
+    paths: [...paths],
+    fallback: false,
   };
 }
 
 export async function getStaticProps({ params }) {
-  const res = await fetch(`https://fakestoreapi.com/products/${params.id}`);
-  const data = await res.json();
-  return {
-    props: {
-      data,
-    },
-  };
+  try {
+    const res = await fetch(`https://fakestoreapi.com/products/${params.id}`);
+    const data = await res.json();
+    return {
+      props: { data },
+    };
+  } catch (e) {
+    console.log(e);
+    return {
+      props: {
+        data: [],
+      },
+    };
+  }
 }
