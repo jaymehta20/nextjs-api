@@ -9,13 +9,13 @@ export default function Home(props) {
   return (
     <>
       <header>
-        <h1> Next js Company</h1>
+        <h1>Acme</h1>
         <select
           name="price"
           id="price"
           onChange={(e) => setFilter(e.target.value)}
         >
-          <option value="Default">Default</option>
+          <option value="Default">Popular</option>
           <option value="price-high-to-low">Price high to low</option>
           <option value="price-low-to-high">Price low to high</option>
         </select>
@@ -30,7 +30,7 @@ export default function Home(props) {
               return a.id - b.id;
             })
             .map((product) => {
-              return <Card product={product} key={product.id} />;
+              return <Card product={product} key={product.id} isFull={false} />;
             })}
         </div>
       </main>
