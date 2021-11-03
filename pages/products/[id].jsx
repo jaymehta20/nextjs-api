@@ -2,6 +2,7 @@ import Link from "next/link";
 import Card from "../../components/Card";
 export default function ProductPage(props) {
   const { data } = props;
+  console.log(data);
   return (
     <>
       <Link href="/">Go to home</Link>
@@ -22,7 +23,7 @@ export async function getStaticPaths() {
   });
 
   return {
-    paths: [...paths],
+    paths,
     fallback: false,
   };
 }
