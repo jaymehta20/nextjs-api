@@ -2,7 +2,6 @@ import Link from "next/link";
 import Card from "../../components/Card";
 export default function ProductPage(props) {
   const { data } = props;
-  console.log(data);
   return (
     <>
       <Link href="/">Go to home</Link>
