@@ -4,29 +4,8 @@ import Head from "next/head";
 
 export default function Home(props) {
   const { data } = props;
+
   const [filter, setFilter] = useState("");
-  // const [products, setProducts] = useState([]);
-  // const [loading, setLoading] = useState(true);
-  // const [error, setError] = useState(null);
-
-  // const fetcher = async () => {
-  //   try {
-  //     const res = await fetch("https://fakestoreapi.com/products");
-  //     const data = await res.json();
-  //     setProducts(data);
-  //   } catch (err) {
-  //     console.log(err);
-  //     setError("There's an error");
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
-  // useEffect(() => {
-  //   fetcher();
-  // }, []);
-
-  // if (loading) return "Loading...";
-  // if (error) return "Error...";
 
   return (
     <>
