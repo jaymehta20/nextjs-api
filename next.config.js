@@ -3,4 +3,8 @@ module.exports = {
   images: {
     domains: ["fakestoreapi.com"],
   },
+  i18n: {
+    locales: ["en"],
+    defaultLocale: "en",
+  },
 };
