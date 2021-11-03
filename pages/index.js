@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Card from "../components/Card";
+import Head from "next/head";
 
 export default function Home(props) {
   const { data } = props;
@@ -29,6 +30,13 @@ export default function Home(props) {
 
   return (
     <>
+      <Head>
+        <title>Nextjs fetch app</title>
+        <meta
+          name="description"
+          content="A basic Nextjs App to fetch data from an API"
+        />
+      </Head>
       <header>
         <h1> Next js Company</h1>
         <select
