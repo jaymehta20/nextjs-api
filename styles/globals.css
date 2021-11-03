@@ -50,11 +50,25 @@ select > option {
   border: none;
 }
 
+input {
+  color: #000;
+  background-color: #ffffff;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border: none;
+  padding: 0.5rem;
+  font-family: inherit;
+}
+
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 3rem;
+}
+
+header > div {
+  display: flex;
+  gap: 1rem;
 }
 
 .product-cards {
