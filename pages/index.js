@@ -4,7 +4,6 @@ import Card from "../components/Card";
 export default function Home(props) {
   const { data } = props;
   const [filter, setFilter] = useState("");
-  const [category, setCategory] = useState("");
   const [search, setSearch] = useState("");
   return (
     <>
